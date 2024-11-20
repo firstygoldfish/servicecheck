@@ -58,10 +58,10 @@ async function main() {
       }
     }
     fs.appendFileSync(opfile, response);
-    fs.appendFileSync(opfile, '<h2>END OF REPORT</h2>');
+    fs.appendFileSync(opfile, '<h2 style="padding-left: 25px;width: 400px;background-color: #c9c9c9;color: #0000cd">END OF REPORT</h2></body>');
   } catch (error) {
     fs.appendFileSync(opfile, error);
-    fs.appendFileSync(opfile, '<h2>END OF REPORT</h2></body>');
+    fs.appendFileSync(opfile, '<h2 style="padding-left: 25px;width: 400px;background-color: #c9c9c9;color: #0000cd">END OF REPORT</h2></body>');
   }
 }
 
