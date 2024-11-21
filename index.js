@@ -2,8 +2,10 @@ var request = require("request");
 var exec = require('child_process').exec;
 const fs = require('fs');
 
-var upstarttag = '<td style="padding: 20px;"><center><img src="laptopup.png"><br><span style="background-color: #00FF00;padding: 5px;">';
-var downstarttag = '<td style="padding: 20px;"><center><img src="laptopdown.png"><br><span style="background-color: #FF0000;padding: 5px;">';
+//var upstarttag = '<td style="padding: 20px;"><center><img src="laptopup.png"><br><span style="background-color: #00FF00;padding: 5px;">';
+//var downstarttag = '<td style="padding: 20px;"><center><img src="laptopdown.png"><br><span style="background-color: #FF0000;padding: 5px;">';
+var upstarttag = '<td style="padding: 20px;"><center><span style="background-color: #00FF00;padding: 5px;">';
+var downstarttag = '<td style="padding: 20px;"><center><span style="background-color: #FF0000;padding: 5px;">';
 var endtag = '</span></center></td>';
 let opfile = 'servicecheck.html';
 let displaycols = 4;
@@ -19,7 +21,7 @@ var checks = [
 ];
 
 function checkURI(element) {
-  console.log('checkURI: ' + element.name);
+  //console.log('checkURI: ' + element.name);
   return new Promise(function (resolve, reject) {
     request({ uri: element.target, timeout: 5000 },
       function (error, response, body) {
@@ -33,7 +35,7 @@ function checkURI(element) {
 }
 
 function checkORA(element) {
-  console.log('checkORA: ' + element.name);
+  //console.log('checkORA: ' + element.name);
   return new Promise(function (resolve, reject) {
     child = exec('echo "PROMPT DATABASE_IS_UP" | sqlplus -S -L ' + element.target, { timeout: 5000 },
       function (error, stdout, stderr) {
